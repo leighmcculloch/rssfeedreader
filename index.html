@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>RSS Feed Reader</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+h2 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 0;
+}
+ul li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a {
+  color: #2562dc;
+  text-decoration: none;
+}
+a:visited {
+  color: #ccc;
+}
+</style>
+</head>
+<body>
+{{range .Feeds}}
+<h2>{{.Title}}</h2>
+<ul>
+{{range .Items}}
+<li>{{.PublishedParsed.Format "01/02 03pm"}} <a href="{{.Link}}" target="_blank">{{.Title}}</a></li>
+{{else}}
+<li>No items in RSS feed</li>
+{{end}}
+</ul>
+{{else}}
+No RSS feeds
+{{end}}
+</body>
+</html>
