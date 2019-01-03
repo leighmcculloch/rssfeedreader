@@ -22,6 +22,7 @@ var feedDefs = []feed{
 	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"},
 	{"HN", "http://news.ycombinator.com/rss"},
 	{"Lobsters", "https://lobste.rs/rss"},
+	{"Go News", "https://golangnews.com/index.xml"},
 	{"NPR", "https://www.npr.org/rss/rss.php?id=1002"},
 	{"Washington Post Politics", "http://feeds.washingtonpost.com/rss/politics"},
 }
