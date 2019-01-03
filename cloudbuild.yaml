@@ -4,4 +4,4 @@ steps:
 - name: 'golang'
   args: ['go', 'build']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', '--version=$SHORT_SHA']
+  args: ['app', 'deploy', '--project=rssfeedreader', '--version=$SHORT_SHA']
