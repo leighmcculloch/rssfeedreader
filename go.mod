@@ -1,4 +1,4 @@
-module simplerss
+module github.com/leighmcculloch/rssfeedreader
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.0 // indirect
