@@ -1,3 +1,7 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "--version=$SHORT_SHA"]
+- name: 'golang'
+  args: ['go', 'vet']
+- name: 'golang'
+  args: ['go', 'build']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', '--version=$SHORT_SHA']
