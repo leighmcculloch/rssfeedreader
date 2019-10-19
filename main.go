@@ -12,20 +12,19 @@ import (
 const maxItems = 15
 
 type feed struct {
-	Name           string
-	URL            string
-	UseDescription bool
+	Name string
+	URL  string
 }
 
 var feedDefs = []feed{
-	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php", false},
-	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml", false},
-	{"Supercars", "https://www.supercars.com/rss/news.rss", false},
-	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml", false},
-	{"HN", "http://news.ycombinator.com/rss", false},
-	{"Lobsters", "https://lobste.rs/rss", false},
-	{"Go News", "https://golangnews.com/index.xml", false},
-	{"NPR", "https://www.npr.org/rss/rss.php?id=1002", false},
+	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php"},
+	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml"},
+	{"Supercars", "https://www.supercars.com/rss/news.rss"},
+	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"},
+	{"HN", "http://news.ycombinator.com/rss"},
+	{"Lobsters", "https://lobste.rs/rss"},
+	{"Go News", "https://golangnews.com/index.xml"},
+	{"NPR", "https://www.npr.org/rss/rss.php?id=1002"},
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
