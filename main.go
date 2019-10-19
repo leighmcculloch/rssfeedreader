@@ -20,6 +20,7 @@ type feed struct {
 var feedDefs = []feed{
 	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php", false},
 	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml", false},
+	{"Supercars", "https://www.supercars.com/rss/news.rss", false},
 	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml", false},
 	{"HN", "http://news.ycombinator.com/rss", false},
 	{"Lobsters", "https://lobste.rs/rss", false},
