@@ -35,7 +35,7 @@ a:visited {
 <h2>{{.Title}}</h2>
 <ul>
 {{range .Items}}
-<li>{{.PublishedParsed.Format "01/02 03pm"}} <a href="{{.Link}}" target="_blank">{{.Title}}</a></li>
+<li>{{.PublishedParsed.Format "01/02"}} <a href="{{.Link}}" target="_blank">{{.Title}}</a></li>
 {{else}}
 <li>No items in RSS feed</li>
 {{end}}
