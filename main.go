@@ -9,22 +9,21 @@ import (
 	"github.com/mmcdole/gofeed"
 )
 
-const maxItems = 15
-
 type feed struct {
-	Name string
-	URL  string
+	Name     string
+	URL      string
+	MaxItems int
 }
 
 var feedDefs = []feed{
-	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php"},
-	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml"},
-	{"Supercars", "https://www.supercars.com/rss/news.rss"},
-	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"},
-	{"HN", "http://news.ycombinator.com/rss"},
-	{"Lobsters", "https://lobste.rs/rss"},
-	{"Go News", "https://golangnews.com/index.xml"},
-	{"NPR", "https://www.npr.org/rss/rss.php?id=1002"},
+	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php", 6},
+	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml", 15},
+	{"Supercars", "https://www.supercars.com/rss/news.rss", 12},
+	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml", 15},
+	{"HN", "http://news.ycombinator.com/rss", 15},
+	{"Lobsters", "https://lobste.rs/rss", 15},
+	{"Go News", "https://golangnews.com/index.xml", 7},
+	{"NPR", "https://www.npr.org/rss/rss.php?id=1002", 10},
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -40,8 +39,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 			log.Printf("error: %v", err)
 			continue
 		}
-		if len(f.Items) > maxItems {
-			f.Items = f.Items[:maxItems]
+		if len(f.Items) > fd.MaxItems {
+			f.Items = f.Items[:fd.MaxItems]
 		}
 		if fd.Name != "" {
 			f.Title = fd.Name
