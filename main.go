@@ -19,11 +19,11 @@ var feedDefs = []feed{
 	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php", 6},
 	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml", 15},
 	{"Supercars", "https://www.supercars.com/rss/news.rss", 12},
-	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml", 15},
 	{"HN", "http://news.ycombinator.com/rss", 15},
 	{"Lobsters", "https://lobste.rs/rss", 15},
 	{"Go News", "https://golangnews.com/index.xml", 7},
 	{"NPR", "https://www.npr.org/rss/rss.php?id=1002", 10},
+	{"NY Times", "https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml", 15},
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
