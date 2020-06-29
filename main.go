@@ -19,6 +19,7 @@ var feedDefs = []feed{
 	{"SF Gate", "https://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php", 6},
 	{"ABC", "https://www.abc.net.au/news/feed/51120/rss.xml", 15},
 	{"Supercars", "https://www.supercars.com/rss/news.rss", 12},
+	{"Public Node", "https://publicnode.org/feed/", 6},
 	{"HN", "http://news.ycombinator.com/rss", 15},
 	{"Lobsters", "https://lobste.rs/rss", 15},
 	{"Go News", "https://golangnews.com/index.xml", 7},
