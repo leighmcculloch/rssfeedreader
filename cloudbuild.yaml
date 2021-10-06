@@ -9,4 +9,4 @@ steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', '--project=rssfeedreader', 'rssfeedreader', '--region', 'us-west2']
+  args: ['run', 'deploy', 'rssfeedreader', '--project=rssfeedreader', '--region=us-west2', '--source=.']
