@@ -1,5 +1,12 @@
 steps:
+
 - name: 'golang'
   args: ['go', 'build']
-- name: 'gcr.io/cloud-builders/gcloud'
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
   args: ['app', 'deploy', '--project=rssfeedreader', '--version=$SHORT_SHA']
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', '--project=rssfeedreader', 'rssfeedreader', '--region', 'us-west2']
