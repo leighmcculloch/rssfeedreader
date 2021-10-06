@@ -1,7 +1,5 @@
 steps:
 - name: 'golang'
-  args: ['go', 'vet']
-- name: 'golang'
   args: ['go', 'build']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '--project=rssfeedreader', '--version=$SHORT_SHA']
