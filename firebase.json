@@ -1,0 +1,13 @@
+{
+    "hosting": {
+        "rewrites": [
+            {
+                "source": "/",
+                "run": {
+                    "serviceId": "rssfeedreader",
+                    "region": "us-west1"
+                }
+            }
+        ]
+    }
+}
