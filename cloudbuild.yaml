@@ -1,15 +1,18 @@
 steps:
 
-- name: 'golang'
-  args: ['go', 'build']
-
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['app', 'deploy', '--project=rssfeedreader', '--version=$SHORT_SHA']
+  args: ['run', 'deploy', 'rssfeedreader', '--project=rssfeedreader', '--region=us-west1', '--allow-unauthenticated', '--source=.']
 
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'rssfeedreader', '--project=rssfeedreader', '--region=us-west1', '--source=.']
-
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: ['deploy', '--project=rssfeedreader']
+- name: 'ubuntu'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+        apt update
+        apt install -y curl sudo
+        curl -sL https://firebase.tools | bash
+        mkdir public
+        touch public/placeholder.html
+        ls -lah
+        firebase deploy --project=rssfeedreader
