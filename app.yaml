@@ -1,6 +1,0 @@
-runtime: go116
-
-handlers:
-- url: .*
-  login: admin
-  script: auto
