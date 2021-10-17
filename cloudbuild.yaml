@@ -1,8 +1,15 @@
 steps:
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'rssfeedreader', '--project=rssfeedreader', '--region=us-west1', '--allow-unauthenticated', '--source=.']
+  entrypoint: bash
+  args:
+    - '-c'
+    - |
+      gcloud run deploy rssfeedreader \
+      --project=rssfeedreader \
+      --region=us-west1 \
+      --allow-unauthenticated \
+      --source=.
 
 - name: 'ubuntu'
   entrypoint: 'bash'
