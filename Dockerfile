@@ -1,13 +1,13 @@
 FROM golang as builder
 
-WORKDIR /workdir
+WORKDIR /rssfeedreader
+COPY go.* ./
+RUN go mod download
 COPY . .
-
-RUN CGO_ENABLED=0 go build -v -o rssfeedreader
+RUN CGO_ENABLED=0 go build -o rssfeedreader
 
 FROM gcr.io/distroless/static
 
-COPY --from=builder /workdir/rssfeedreader /rssfeedreader
-COPY --from=builder /workdir/index.html /index.html
+COPY --from=builder /rssfeedreader/rssfeedreader /rssfeedreader
 
 CMD ["/rssfeedreader"]

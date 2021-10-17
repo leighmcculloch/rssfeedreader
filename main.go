@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"html/template"
 	"log"
 	"net/http"
@@ -53,15 +54,18 @@ func index(w http.ResponseWriter, r *http.Request) {
 		}
 		d.Feeds = append(d.Feeds, f)
 	}
-	err := indexTemplate().Execute(w, d)
+	err := indexTemplate.Execute(w, d)
 	if err != nil {
 		log.Printf("template error: %v", err)
 	}
 }
 
-func indexTemplate() *template.Template {
-	return template.Must(template.ParseFiles("index.html"))
-}
+//go:embed index.html
+var indexHTML string
+
+var indexTemplate = func() *template.Template {
+	return template.Must(template.New("index.html").Parse(indexHTML))
+}()
 
 func main() {
 	mux := http.NewServeMux()
